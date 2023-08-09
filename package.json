@@ -1,0 +1,19 @@
+{
+  "name": "pil-cypress",
+  "version": "1.0.0",
+  "description": "Curso de Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "open"
+  },
+  "keywords": [
+    "Cypress",
+    "test",
+    "automation"
+  ],
+  "author": "Ivan Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.17.3"
+  }
+}
