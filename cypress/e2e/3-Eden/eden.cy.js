@@ -3,15 +3,17 @@
 import EdenHome from "../../Page/edenHome";
 import EdenHeader from "../../Page/edenHeader";
 import EdenEvent from "../../Page/edenEvent";
+import edenCuartetos from "../../Page/edenCuartetos";
 const edenHome = new EdenHome();
 const edenHeader = new EdenHeader();
 const edenEvent = new EdenEvent();
+
 //Forma del PageObject Tipo 2
 const edenSalas = require("../../Page/edenSalas");
 
 describe("Test sobre la página de EDEN ENTRADAS", () => {
   beforeEach(() => {
-    cy.openWeb();
+    cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
   });
   it("Verificar subtitulos", () => {
     edenHome.getSubTitles().first().should("contain.text", "BUSCAR EVENTO");
@@ -163,5 +165,11 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
           .should("contain.text", salaData.address);
       });
     });
+  });
+
+  //PRUEBA DE VALIDACION//
+
+  it.only("Verificar precio cuartetos", () => {
+    edenHeader.getMenuButtons().contains("CUARTETOS").click();
   });
 });
