@@ -4,7 +4,7 @@ describe("Test de SERVICIOS", () => {
   it("Verificar servicio", () => {
     cy.request(
       "GET",
-      "https://edenapi.edenentradas.com.ar/edenventarestapi2/api/contenido/inicio"
+      "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio"
     ).then((response) => {
       cy.log(JSON.stringify(response));
       expect(response.status).to.eq(200);
@@ -14,7 +14,7 @@ describe("Test de SERVICIOS", () => {
   it("Verificar servicio 2", () => {
     cy.request({
       method: "GET",
-      url: "https://edenapi.edenentradas.com.ar/edenventarestapi2/api/contenido/inicio",
+      url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
     }).then((response) => {
       cy.writeFile(`cypress/fixtures/eventos.json`, response.body);
       expect(response.status).to.eq(200);
@@ -24,7 +24,7 @@ describe("Test de SERVICIOS", () => {
   it.only("Verificar servicio 3", () => {
     cy.request({
       method: "GET",
-      url: "https://edenapi.edenentradas.com.ar/edenventarestapi2/api/contenido/inicio",
+      url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
     }).then((response) => {
       cy.writeFile(`cypress/fixtures/eventos.json`, response.body);
       expect(response.status).to.eq(200);

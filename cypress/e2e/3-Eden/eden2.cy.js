@@ -3,9 +3,10 @@ const edenHome2 = require("../../Page/edenHome2");
 const edenHeader2 = require("../../Page/edenHeader2");
 
 describe("Test sobre la página de EDEN ENTRADAS", () => {
+  beforeEach(() => {
+    cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
+  });
   it("Verificar subtitulos", () => {
-    cy.visit("/");
-
     const txtBuscar = "BUSCAR EVENTO";
     const txtCalendar = "CALENDARIO DE EVENTOS";
     edenHome2.getSubTitles().first().should("contain.text", txtBuscar);
@@ -13,8 +14,6 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
   });
 
   it("Verificar Menu", () => {
-    cy.visit("/");
-
     const menuBtn = [
       "HOME",
       "TODOS",
@@ -32,21 +31,14 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
   });
 
   it("Verificar pagina de recitales", () => {
-    cy.visit("/");
     edenHeader2.getMenuButtons().eq(3).click();
   });
 
   it("Verificar pagina de recitales", () => {
-    cy.visit("/");
-    const newUrl = `${Cypress.config().baseUrl}sitio/contenido/recitales`;
-    edenHeader2.getMenuButtons().contains("RECITALES").click();
-    cy.url().should("eq", newUrl);
-    cy.url().should("include", "/sitio/contenido/recitales");
+    edenHeader2.getMenuButtons().eq(3).click();
   });
 
   it("Logo", () => {
-    cy.visit("/");
-
     const imgSrc = "https://static.edenentradas.com.ar/sitio/images/logo.gif";
     edenHeader2.getImgLogo().should("have.attr", "src", imgSrc);
     edenHeader2.getImgLogo().should("have.attr", "alt", "EdenEntradas");

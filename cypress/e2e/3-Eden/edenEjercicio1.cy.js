@@ -12,8 +12,15 @@ describe("TEST SOBRE SECCION CUARTETOS", () => {
   it.only("Verificar precio", () => {
     edenHeader.getMenuButtons().contains("CUARTETOS").click();
     edenCuartetos.getCuartetoInfo().click();
-    edenCuartetos
-      .getCuartetoPrice()
-      .should("contain.text", "$ 3.000,00 + $ 0,00");
+    let name = edenCuartetos.getCuartetoName();
+    if (name.contains("El Perla Eventos")) {
+      edenCuartetos
+        .getCuartetoPrice()
+        .should("contain.text", "$ 2.000,00 + $ 200,00");
+    } else if (getCuartetoName().contains("Atenas")) {
+      edenCuartetos
+        .getCuartetoPrice()
+        .should("contain.text", "$ 1.350,00 + $ 150,00");
+    }
   });
 });

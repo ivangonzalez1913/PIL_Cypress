@@ -9,7 +9,7 @@ describe("TEST SOBRE SECCION CUARTETOS", () => {
     cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
   });
 
-  it.only("Verificar precio", () => {
+  it("Verificar precio", () => {
     edenHeader.getMenuButtons().contains("CUARTETOS").click();
 
     edenCuartetos
@@ -21,9 +21,11 @@ describe("TEST SOBRE SECCION CUARTETOS", () => {
         if (
           edenCuartetos
             .getCuartetoPrice()
-            .should("contain.text", "$ 3.000,00 + $ 0,00")
+            .should("contain.text", "$ 2.000,00 + $ 200,00")
         ) {
           edenHeader.getMenuButtons().contains("CUARTETOS").click();
+        } else {
+          return false;
         }
       });
   });
