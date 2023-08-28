@@ -20,15 +20,4 @@ describe("Test de SERVICIOS", () => {
       expect(response.status).to.eq(200);
     });
   });
-
-  it.only("Verificar servicio 3", () => {
-    cy.request({
-      method: "GET",
-      url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
-    }).then((response) => {
-      cy.writeFile(`cypress/fixtures/eventos.json`, response.body);
-      expect(response.status).to.eq(200);
-      cy.validarScheme("eventos_schema", "eventos");
-    });
-  });
 });

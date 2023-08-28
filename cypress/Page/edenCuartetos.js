@@ -14,9 +14,7 @@ class edenCuartetos {
     return cy.get(".botonLink");
   }
   getCuartetoName() {
-    return cy.get(
-      "[class='pull-left fg-eden fs-14 font-weight-bold d-none d-md-block']"
-    );
+    return cy.get(".fechas-funciones span");
   }
 }
 export default new edenCuartetos();

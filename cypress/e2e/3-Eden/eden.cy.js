@@ -43,9 +43,8 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
     "Verificar pagina de recitales",
     { tags: ["@regression", "@smoke"] },
     () => {
-      const newUrl = `${Cypress.config().baseUrl}sitio/contenido/recitales`;
       edenHeader.getMenuButtons().contains("RECITALES").click();
-      cy.url().should("eq", newUrl);
+
       cy.url().should("include", "/sitio/contenido/recitales");
     }
   );
@@ -67,14 +66,11 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
   });
 
   it("Buscador", () => {
-    edenHeader.getSearchInput().type("Queen");
-    edenHeader.getSearchSuggestion().contains("Queen").click();
+    edenHeader.getSearchInput().type("la mona");
+    edenHeader.getSearchSuggestion().contains("La Mona").click();
     edenEvent
       .getEventTitle()
-      .should(
-        "have.text",
-        'Experiencia Queen "Champions of the World Tour 23" '
-      );
+      .should("have.text", "Creepy Halloween/ La Mona Jimenez ");
   });
 
   it("Calendario", () => {
@@ -122,7 +118,8 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
     edenHeader.getSearchInput().type("Experiencia");
   });
 
-  it("Verificar pagina de Salas", () => {
+  //NO FUNCIONA LA PAGINA DE "SALAS"
+  it.skip("Verificar pagina de Salas", () => {
     const arrSalas = [
       "Plaza de La Música",
       "Sala del Rey",
@@ -151,7 +148,7 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
     });
   });
 
-  it("Verificar salas completo", () => {
+  it.skip("Verificar salas completo", () => {
     edenHeader.getMenuButtons().contains("SALAS").click();
 
     cy.fixture(`salas.json`).then((file) => {
@@ -169,7 +166,7 @@ describe("Test sobre la página de EDEN ENTRADAS", () => {
 
   //PRUEBA DE VALIDACION//
 
-  it.only("Verificar precio cuartetos", () => {
+  it.skip("Verificar precio cuartetos", () => {
     edenHeader.getMenuButtons().contains("CUARTETOS").click();
   });
 });

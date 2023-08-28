@@ -13,14 +13,37 @@ describe("TEST SOBRE SECCION CUARTETOS", () => {
     edenHeader.getMenuButtons().contains("CUARTETOS").click();
     edenCuartetos.getCuartetoInfo().click();
     let name = edenCuartetos.getCuartetoName();
-    if (name.contains("El Perla Eventos")) {
-      edenCuartetos
-        .getCuartetoPrice()
-        .should("contain.text", "$ 2.000,00 + $ 200,00");
-    } else if (getCuartetoName().contains("Atenas")) {
-      edenCuartetos
-        .getCuartetoPrice()
-        .should("contain.text", "$ 1.350,00 + $ 150,00");
-    }
+    name.then((name) => {
+      if (name.text().includes("El Perla Eventos")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 2.000,00 + $ 200,00");
+      } else if (name.text().includes("Atenas")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+      } else if (name.text().includes("Banda XXI")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+        edenHeader.getMenuButtons().contains("CUARTETOS").click();
+      } else if (name.text().includes("Atenas")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+      } else if (name.text().includes("Atenas")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+      } else if (name.text().includes("Atenas")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+      } else if (name.text().includes("Atenas")) {
+        edenCuartetos
+          .getCuartetoPrice()
+          .should("contain.text", "$ 1.350,00 + $ 150,00");
+      }
+    });
   });
 });
