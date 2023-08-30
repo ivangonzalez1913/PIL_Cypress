@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import edenCuartetos from "../../Page/edenCuartetos";
-import EdenHeader from "../../Page/edenHeader";
+import edenCuartetos from "../../Page/EDEN/edenCuartetos";
+import EdenHeader from "../../Page/EDEN/edenHeader";
 const edenHeader = new EdenHeader();
 
 describe("TEST SOBRE SECCION CUARTETOS", () => {

@@ -11,7 +11,7 @@ describe("Test de SERVICIOS", () => {
     });
   });
 
-  it.only("Test Sevicios Home", () => {
+  it("Test Sevicios Home", () => {
     cy.request({
       method: "GET",
       url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",

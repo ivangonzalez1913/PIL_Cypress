@@ -1,15 +1,15 @@
 /// <reference types="cypress" />
 //Forma del PageObject tipo 1
-import EdenHome from "../../Page/edenHome";
-import EdenHeader from "../../Page/edenHeader";
-import EdenEvent from "../../Page/edenEvent";
-import edenCuartetos from "../../Page/edenCuartetos";
+import EdenHome from "../../Page/EDEN/edenHome";
+import EdenHeader from "../../Page/EDEN/edenHeader";
+import EdenEvent from "../../Page/EDEN/edenEvent";
+import edenCuartetos from "../../Page/EDEN/edenCuartetos";
 const edenHome = new EdenHome();
 const edenHeader = new EdenHeader();
 const edenEvent = new EdenEvent();
 
 //Forma del PageObject Tipo 2
-const edenSalas = require("../../Page/edenSalas");
+const edenSalas = require("../../Page/EDEN/edenSalas");
 
 describe("Test sobre la página de EDEN ENTRADAS", () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import edenCuartetos from "../../Page/edenCuartetos";
-import EdenHeader from "../../Page/edenHeader";
+import edenCuartetos from "../../Page/EDEN/edenCuartetos";
+import EdenHeader from "../../Page/EDEN/edenHeader";
 const edenHeader = new EdenHeader();
 
 describe("TEST SOBRE SECCION CUARTETOS", () => {
@@ -9,7 +9,7 @@ describe("TEST SOBRE SECCION CUARTETOS", () => {
     cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
   });
 
-  it.only("Verificar precio", () => {
+  it("Verificar precio", () => {
     edenHeader.getMenuButtons().contains("CUARTETOS").click();
     edenCuartetos.getCuartetoInfo().click();
     let name = edenCuartetos.getCuartetoName();
