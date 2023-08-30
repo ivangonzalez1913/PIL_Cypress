@@ -8,7 +8,7 @@ describe("Test sobre nabvar", () => {
   });
   it("Verificar navbar", () => {
     const navbarNames = [
-      "\n                Yvytu\n                \n              ",
+      "",
       "LA RESERVA",
       "CABAÑAS",
       "COMO LLEGAR",
@@ -22,7 +22,7 @@ describe("Test sobre nabvar", () => {
     });
   });
 
-  it.only("Verificar estilos botones", () => {
+  it("Verificar estilos botones", () => {
     yvytuHeader.getHeaderButtons().each((el, inx) => {
       cy.log(`"este es el boton ${inx}"`);
       if (inx === 5) {
@@ -42,6 +42,13 @@ describe("Test sobre nabvar", () => {
             "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box"
           );
       }
+    });
+  });
+  it("Verificar nombre cabanas", () => {
+    let cabanaName = cy.get("h3");
+    const cabanaNames = ["Cabaña Yaguareté", "Cabaña Arasari"];
+    cabanaName.each((el, inx) => {
+      cy.wrap(el).should("contain", cabanaNames[inx]);
     });
   });
 });
