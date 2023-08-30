@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const yvytuHeader = require("../../Page/YVYTU/yvytuHeader");
+const yvytuHome = require("../../Page/YVYTU/yvytuHome");
 
 describe("Test sobre nabvar", () => {
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe("Test sobre nabvar", () => {
       "CONTACTO",
       "DONÁ",
     ];
-    yvytuHeader.getHeaderButtons().each((el, inx) => {
+    yvytuHome.getHeaderButtons().each((el, inx) => {
       if (inx != 0) {
         cy.wrap(el).should("have.text", navbarNames[inx]);
       }
@@ -23,7 +23,7 @@ describe("Test sobre nabvar", () => {
   });
 
   it("Verificar estilos botones", () => {
-    yvytuHeader.getHeaderButtons().each((el, inx) => {
+    yvytuHome.getHeaderButtons().each((el, inx) => {
       cy.log(`"este es el boton ${inx}"`);
       if (inx === 5) {
         cy.wrap(el)
@@ -45,10 +45,24 @@ describe("Test sobre nabvar", () => {
     });
   });
   it("Verificar nombre cabanas", () => {
-    let cabanaName = cy.get("h3");
     const cabanaNames = ["Cabaña Yaguareté", "Cabaña Arasari"];
-    cabanaName.each((el, inx) => {
+    yvytuHome.getCabanaName().each((el, inx) => {
       cy.wrap(el).should("contain", cabanaNames[inx]);
+    });
+  });
+  it.only("Verificar informacion cabanas", () => {
+    const cabanaInfo = [
+      "Para 4 personas",
+      "2 habitaciones",
+      "Baño con ducha",
+      "Ropa de cama",
+      "Wi-fi",
+      "Aire acondicionado",
+    ];
+    yvytuHome.getCabanaInfo().each((el, inx) => {
+      if (inx < 6) {
+        cy.wrap(el).should("have.text", cabanaInfo[inx]);
+      }
     });
   });
 });
