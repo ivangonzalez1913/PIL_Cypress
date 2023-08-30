@@ -11,13 +11,14 @@ describe("Test de SERVICIOS", () => {
     });
   });
 
-  it("Verificar servicio 2", () => {
+  it.only("Test Sevicios Home", () => {
     cy.request({
       method: "GET",
       url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
     }).then((response) => {
-      cy.writeFile(`cypress/fixtures/eventos.json`, response.body);
       expect(response.status).to.eq(200);
+      cy.writeFile(`cypress/fixtures/autogenerado/eventos.json`, response.body);
     });
+    cy.validarSchema("eventos_schema", "eventos");
   });
 });
