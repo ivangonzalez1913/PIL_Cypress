@@ -21,4 +21,13 @@ describe("Test de SERVICIOS", () => {
     });
     cy.validarSchema("eventos_schema", "eventos");
   });
+
+  it.only("Test servicios con funcion", () => {
+    cy.callServiceCheck(
+      "GET",
+      "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
+      "eventos_schema",
+      "eventos"
+    );
+  });
 });
